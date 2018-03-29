@@ -22,19 +22,21 @@ export default class Message extends Component {
 
   edit( event ) {
     const { text } = this.state;
-    const { id, edit } = this.props;
+    const { id, edit, name } = this.props;
     if( event.key === "Enter" && text.length !== 0 ) {
-      edit( id, text );
+      edit( id, text, name );
       this.setState({ editting: false });
     }
   }
 
   render() {
-    const { id, text, time, edit, remove } = this.props;
+    const { id, text, time, edit, remove, name } = this.props;
     const { editting } = this.state;
     console.log( id, text );
     return (
       <div className="Message__container">
+      
+        
         <span className="Message__time">{time}</span>
         {
           editting
@@ -43,6 +45,7 @@ export default class Message extends Component {
           :
             <span className="Message__text">{text}</span>
         }
+        <div id="name">{name}</div>
         <span className="Message__edit" onClick={ () => this.setState({ editting: !this.state.editting, text }) }> <FaPencil /> </span>
         <span className="Message__delete" onClick={ () => remove( id ) }> <FaTrash /> </span>
       </div>
