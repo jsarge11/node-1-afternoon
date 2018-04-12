@@ -1,2 +1,2 @@
-export default "http://wwww.localhost:3001/api/messages";
+export default "http://d3119508.ngrok.io/api/messages";
                 

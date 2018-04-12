@@ -15,7 +15,6 @@ module.exports = {
  },
 
  create: (req, res) => {
-  console.log("you called me");
   let message = {
    text: req.body.text,
    time: req.body.time,
@@ -23,7 +22,6 @@ module.exports = {
    name: req.body.name
   }
   id++;
-
 
   messages.push(message);
   res.status(200).send( messages );
